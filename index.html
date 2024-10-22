@@ -3,27 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Notepad App</title>
+    <title>Netflix Themed Notepad</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div id="app">
         <header>
-            <h1>📝 Personal Notepad</h1>
+            <h1>Notepad - Powered by Netflix</h1>
+            <button id="github-login">Login with GitHub</button>
         </header>
 
         <div id="notepad-container">
             <textarea id="notepad" placeholder="Write your notes here..."></textarea>
 
             <div id="file-attachments">
-                <label for="fileInput">📎 Attach Files</label>
+                <label for="fileInput">Attach Files</label>
                 <input type="file" id="fileInput" multiple>
                 <div id="file-list"></div>
             </div>
 
             <div id="actions">
-                <button id="save-btn">💾 Save</button>
-                <button id="share-btn">📤 Share</button>
+                <button id="save-btn">Save as PDF/Word</button>
+                <button id="download-btn">Download</button>
+                <button id="share-btn">Share</button>
             </div>
         </div>
 
