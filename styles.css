@@ -1,0 +1,98 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+#app {
+    width: 90%;
+    max-width: 800px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+h1 {
+    font-size: 2rem;
+    color: #5c67ff;
+}
+
+#notepad-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+textarea {
+    width: 100%;
+    height: 300px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    resize: none;
+    font-size: 1.1rem;
+}
+
+#file-attachments {
+    margin: 10px 0;
+}
+
+#fileInput {
+    display: none;
+}
+
+label[for="fileInput"] {
+    cursor: pointer;
+    color: #ff6f61;
+    background-color: #f4f4f9;
+    padding: 10px;
+    border: 2px solid #ff6f61;
+    border-radius: 5px;
+}
+
+#file-list {
+    margin-top: 10px;
+    max-height: 100px;
+    overflow-y: auto;
+    width: 100%;
+}
+
+#actions {
+    margin-top: 20px;
+}
+
+button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 5px;
+    font-size: 1rem;
+}
+
+#save-btn {
+    background-color: #5c67ff;
+    color: white;
+}
+
+#share-btn {
+    background-color: #28a745;
+    color: white;
+}
+
+footer {
+    text-align: center;
+    margin-top: 20px;
+}
