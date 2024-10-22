@@ -13,45 +13,55 @@ fileInput.addEventListener('change', function(event) {
     }
 });
 
-// Save notes and files (local storage for demo)
+// Save notes as PDF or Word (download)
 const saveButton = document.getElementById('save-btn');
-saveButton.addEventListener('click', saveNote);
+saveButton.addEventListener('click', saveAsDocument);
 
-function saveNote() {
+function saveAsDocument() {
     const notepadContent = document.getElementById('notepad').value;
-    if (notepadContent.trim() === '' && fileList.innerHTML === '') {
-        alert('Note is empty!');
+    const blob = new Blob([notepadContent], { type: 'application/msword' }); // Change type for PDF or others
+    const link = document.createElement('a');
+    link.href = URL.createObjectURL(blob);
+    link.download = 'note.doc';
+    link.click();
+}
+
+// Download content as a file
+const downloadButton = document.getElementById('download-btn');
+downloadButton.addEventListener('click', function() {
+    const content = document.getElementById('notepad').value;
+    if (content.trim() === '') {
+        alert('Nothing to download');
         return;
     }
 
-    const files = fileInput.files;
-    const savedData = {
-        text: notepadContent,
-        files: []
-    };
+    const blob = new Blob([content], { type: 'text/plain' });
+    const link = document.createElement('a');
+    link.href = URL.createObjectURL(blob);
+    link.download = 'note.txt';
+    link.click();
+});
 
-    for (let i = 0; i < files.length; i++) {
-        savedData.files.push(files[i].name); // Simulate saving file names
-    }
-
-    localStorage.setItem('savedNote', JSON.stringify(savedData));
-    alert('Note saved successfully!');
-}
-
-// Share note (generate email with content)
+// Share files (multi-file sharing logic)
 const shareButton = document.getElementById('share-btn');
-shareButton.addEventListener('click', shareNote);
+shareButton.addEventListener('click', shareFiles);
 
-function shareNote() {
-    const notepadContent = document.getElementById('notepad').value;
-    if (notepadContent.trim() === '' && fileList.innerHTML === '') {
+function shareFiles() {
+    if (fileInput.files.length === 0 && document.getElementById('notepad').value.trim() === '') {
         alert('No content to share!');
         return;
     }
 
-    const emailSubject = "Shared Notepad Content";
-    const emailBody = encodeURIComponent(notepadContent);
-    const emailHref = `mailto:?subject=${emailSubject}&body=${emailBody}`;
-    
-    window.location.href = emailHref;
+    const files = fileInput.files;
+    const content = document.getElementById('notepad').value;
+    const emailBody = encodeURIComponent(content);
+
+    const email = 'mailto:?subject=Shared Notepad&body=' + emailBody;
+    window.open(email);
 }
+
+// GitHub Login Simulation (can integrate OAuth later)
+const githubLogin = document.getElementById('github-login');
+githubLogin.addEventListener('click', () => {
+    window.location.href = 'https://github.com/login'; // GitHub OAuth login link
+});
