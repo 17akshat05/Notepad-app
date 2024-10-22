@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notepad App</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="app">
+        <header>
+            <h1>📝 Personal Notepad</h1>
+        </header>
+
+        <div id="notepad-container">
+            <textarea id="notepad" placeholder="Write your notes here..."></textarea>
+
+            <div id="file-attachments">
+                <label for="fileInput">📎 Attach Files</label>
+                <input type="file" id="fileInput" multiple>
+                <div id="file-list"></div>
+            </div>
+
+            <div id="actions">
+                <button id="save-btn">💾 Save</button>
+                <button id="share-btn">📤 Share</button>
+            </div>
+        </div>
+
+        <footer>
+            <p>Created by Akshat Jain's Notepad App</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
